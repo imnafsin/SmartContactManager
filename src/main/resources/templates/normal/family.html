@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Family_Details</title>
+</head>
+<body>
+	<section>
+		 <div class="container class text-center mt-2">
+ <h1>View Family Details</h1>
+ </div>	
+ 
+ 	<div class="container">
+			<div class="card">
+			<div class="card-body">	
+			<div class="container text-center mt-2">
+			<img src="" style="height: 200px; width: 200px;"
+						class="my_profile_picture mt-0" th:src="@{'/images/'+${user.imageUrl}}"
+						alt="profile photo" />
+						
+						</div>
+			<h1 class ="text-center" th:text="${user.name}"></h1>	
+				
+			<table class="table text-center">
+				<tr>
+					<tr>
+						<th scope="col">#UserId</th>
+						<th scope="col">SCMUSER<span th:text="${user.id}"></span></th>
+											</tr>
+				
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Age</th>
+						<th scope="col">Gender</th>
+						<th scope="col">Country</th>
+						<th scope="col">State</th>
+						<th scope="col">City</th>
+						<th scope="col">Relation</th>	
+					</tr>
+						
+				  <tr th:each="f:${family}">
+						<td th:text="${f.name}">Name</td>
+						<td th:text="${f.age}">Age</td>
+						<td th:text="${f.gender}">Gender</td>
+						<td th:text="${f.Country}">Country</td>
+						<td th:text="${f.state}">State</td>
+						<td th:text="${f.city}">City</td>
+						<td th:text="${f.relation}">Relation</td>
+					</tr>
+						
+										
+				
+			</table>
+			<a href="" th:href="@{/user/details}">
+				<button class="btn bg-primary text-white">Add_Family_Details</button>
+				</a>
+	</div>
+	</div>
+	</div>
+
+	</section>
+</body>
+</html>
